@@ -6,7 +6,7 @@
       </div>
     </div>
     <div v-else class="main">
-      <router-view />
+      <router-view></router-view>
       <!-- <Home/> -->
     </div>
   </div>

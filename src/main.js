@@ -5,7 +5,10 @@ import store from '@/store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import mitt from 'mitt'
 // import { faSpinner } from '@fortawesome/pro-regular-svg-icons'
+
+const emitter = mitt()
 
 library.add(faUserSecret)
 let vue = createApp(App)
@@ -33,3 +36,4 @@ vue.use(store)
 vue.mount('#app')
 
 
+export default emitter
