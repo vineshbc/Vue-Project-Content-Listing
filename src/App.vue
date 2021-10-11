@@ -38,6 +38,7 @@ export default {
     if (!userData) {
       this.$router.push({ name: "login" });
     }
+
     this.actInfo()
       .then((res) => {
         this.setContentList(res._embedded.episodes)
@@ -48,7 +49,7 @@ export default {
   },
   methods: {
     // ...mapActions('content',['actInfo']),
-    ...mapActions('content',['actInfo']),
+    ...mapActions('content',['actInfo','testApi','axiosApi']),
     ...mapMutations('content',['setContentList'])
   },
 
@@ -61,7 +62,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+
 * {
   margin: 0;
   box-sizing: border-box;

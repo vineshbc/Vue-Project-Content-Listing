@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import mitt from 'mitt'
+import VCalendar from 'v-calendar';
+// import "./vue.config.js"
 // import { faSpinner } from '@fortawesome/pro-regular-svg-icons'
 
 const emitter = mitt()
@@ -33,6 +35,7 @@ vue.directive('randomColor', {
 // window.bootstrap = bootstrap
 vue.use(router)
 vue.use(store)
+vue.use(VCalendar, {})
 vue.mount('#app')
 
 

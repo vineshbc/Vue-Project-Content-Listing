@@ -1,10 +1,18 @@
 <template>
-  <div class="home--main"  @scroll="scrollFunc">
-    <div id="teleport"></div>
-    <div style="text-align: right">
-      <button class="fav--btn" @click="this.$router.push({ name: 'myfav' })">
-        My Favourite
-      </button>
+  <div class="home--main" @scroll="scrollFunc">
+    <div class="btn1">
+      <div style="text-align: right">
+        <button class="fav--btn" @click="this.$router.push({ name: 'myfav' })">
+          My Favourite
+        </button>
+      </div>
+    </div>
+    <div class="btn2">
+      <div style="text-align: right">
+        <button class="fav--btn" @click="this.$router.push({ name: 'myfav' })">
+          My Favourite
+        </button>
+      </div>
     </div>
     <div v-if="errMsg">{{ errMsg }}</div>
     <div v-else>
@@ -28,8 +36,7 @@
 <script>
 import { useStore } from "vuex";
 import EpisodeDesc from "./EpisodeDesc.vue";
-import { ref, computed,provide, } from "vue";
-
+import { ref, computed, provide } from "vue";
 export default {
   components: { EpisodeDesc },
   name: "home",
@@ -38,8 +45,8 @@ export default {
       errMsg: "",
     };
   },
-  created(){
-    console.log("errMsG",this.errMsg)
+  created() {
+    console.log("errMsG", this.errMsg);
   },
 
   setup() {
@@ -55,7 +62,7 @@ export default {
       });
       return finalData;
     });
-    provide('contentDataList',{name:"xzy"})
+    provide("contentDataList", { name: "xzy" });
     // watch(searchInput,(value)=>{
     //   searchFilter(value)
     // })
@@ -110,23 +117,58 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home--main {
   height: 80vh;
   overflow: auto;
+
+  .btn1 {
+    .fav--btn {
+      @extend %btnProp;
+      background: $btn-one;
+    }
+  }
+  .btn2 {
+    .fav--btn {
+      @extend %btnProp;
+      background: $btn-two;
+      margin-top: 10px;
+    }
+  }
+
+  .search--input {
+    padding: 10px;
+    width: 50%;
+  }
+  .search--main {
+    margin: 20px;
+  }
 }
-.fav--btn {
-  border: 0;
-  background: lightskyblue;
-  padding: 25px;
-  widows: 25%;
-  border-radius: 15px;
-}
-.search--input {
-  padding: 10px;
-  width: 50%;
-}
-.search--main {
-  margin: 20px;
-}
+
+/* .home--main {
+  height: 80vh;
+  overflow: auto;
+  .btn1 {
+    .fav--btn {
+      background: $button-color;
+      @extend .btnProp;
+    }
+  }
+  .btn2 {
+    .fav--btn {
+      background:$btn-two;
+      @extend .btnProp;
+
+      margin-top: 15px;
+    }
+  }
+  .search--input {
+    padding: 10px;
+    width: 50%;
+  }
+  .search--main {
+    margin: 20px;
+  }
+} */
 </style>
+

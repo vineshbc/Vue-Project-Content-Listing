@@ -7,10 +7,14 @@
       </div>
     </div>
     <h1 style="text-align: center">Welcome to dashboard! {{ info && info.name }}</h1>
+    <div class="graph">
+      <div id="barchart"></div>
+    </div>
   </div>
 </template>
 
 <script>
+import barGraph from "@/utils/echartGraph.js"
 export default {
   name: "dashboard",
   data() {
@@ -20,6 +24,8 @@ export default {
     };
   },
   mounted() {
+            barGraph()
+
     this.info = JSON.parse(localStorage.getItem("userDetails"));
     console.log(this.info);
   },
@@ -36,6 +42,14 @@ export default {
 }
 .card {
   margin-left: 88%;
+  text-align: center;
+}
+#barchart{
+  width: 100%;
+  height: 500px;
+}
+.graph{
+  width:100%;
   text-align: center;
 }
 </style>
